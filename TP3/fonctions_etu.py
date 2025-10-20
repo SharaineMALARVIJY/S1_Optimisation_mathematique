@@ -1,12 +1,7 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Oct 16 17:27:26 2025
-
-@author: Florence
-"""
+#Sharaine MALARVIJY
+#%%
 import numpy as np
 import struct
-import random
 
 #%%
 def genere_population(n_population, bornes) :
@@ -125,16 +120,16 @@ def binary_to_float(binary_string) :
     return struct.unpack('>f', bytes(list_int))[0]
 
 #%% Fonction de croisement
-def croisement(parent1, parent2) :
 
+def croisement(parent1, parent2) :
+    
     # Construction des chromosomes des parents
     chromo_p1 = float_to_binary(parent1[0]) + float_to_binary(parent1[1])
     chromo_p2 = float_to_binary(parent2[0]) + float_to_binary(parent2[1])
     
-
-    A COMPLETER...
-
-
+    seuil = np.random.randint(1, 64)
+    chromo_ch1 = chromo_p1[:seuil] + chromo_p1[seuil:]
+    chromo_ch2 = chromo_p2[:seuil] + chromo_p2[seuil:]
     
     # Conversion en float du chromosome des enfants
     x_ch1 = binary_to_float(chromo_ch1[0:32])
