@@ -112,6 +112,9 @@ x1d = np.linspace(xmin, xmax, nx)
 y1d = np.linspace(ymin, ymax, ny)
 x2d, y2d = np.meshgrid(x1d, y1d)
 
+res = optimize.minimize(lambda X: J(X[0], X[1]), x0=Xn)
+print(f"Minimum at x = {res.x[0]:.4f}, y = {res.x[1]:.4f}, J = {res.fun:.4f}")
+
 # Tracé des isovaleurs de fl
 nIso = 491
 plt.contour(x2d, y2d, J(x2d, y2d), nIso)
@@ -121,6 +124,7 @@ plt.ylabel("Valeurs de y")
 plt.grid()
 plt.axis("square")
 plt.show()
+
 
 
 # %%
